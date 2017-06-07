@@ -28,7 +28,7 @@ char getche(){             //Getch not available in linux
  }
 int piece_type,playr_type,a,b,c,d,z,x;
 static int checkmate,bkx,wkx,bky,wky,pos_x,pos_y; //integers that can be changed throughout the program 
-enum { KINGW=1,QUEENW=2,BISHOPW=3,ROOKW=4,KNIGHTW=5,PAWNW=6,KINGB=7,QUEENB=8,BISHOPB=9,ROOKB=10,KNIGHTB=11,PAWNB=12 };// assigning values to pieces
+enum { KINGW=1,QUEENW=2,BISHOPW=3,ROOKW=4,KNIGHTW=5,PAWNW=6,KINGB=7,QUEENB=8,BISHOPB=9,ROOKB=10,KNIGHTB=11,PAWNB=12 };// assigning values
 
 int Board_Piece[8][8]={ ROOKW,KNIGHTW,BISHOPW,KINGW,QUEENW,BISHOPW,KNIGHTW,ROOKW, //declare board
 			PAWNW,PAWNW,PAWNW,PAWNW,PAWNW,PAWNW,PAWNW,PAWNW,
@@ -65,7 +65,8 @@ else if(piece_type == 1||piece_type ==7)//king
 	{
 		if(Board_Piece[c][d]==0||Board_Piece[c][d]>=7)//change for testing
 		{
-			if((a==c&&b==d+1)||(a==c+1&&b==d)||(a==c&&b+1==d)||(a+1==c&&b==d)||(a==c+1&&b==d+1)||(a+1==c&&b==d+1)||(a+1==c&&b+1==d)||(a==c+1&&b+1==d))
+			if((a==c&&b==d+1)||(a==c+1&&b==d)||(a==c&&b+1==d)||(a+1==c&&b==d)||
+			   (a==c+1&&b==d+1)||(a+1==c&&b==d+1)||(a+1==c&&b+1==d)||(a==c+1&&b+1==d))
 			return 1;
 			else 
 			return 0;
@@ -77,7 +78,8 @@ else if(piece_type == 1||piece_type ==7)//king
 	{
 		if(Board_Piece[c][d]==0||Board_Piece[c][d]<=7)//change for testing
 		{
-			if((a==c&&b==d+1)||(a==c+1&&b==d)||(a==c&&b+1==d)||(a+1==c&&b==d)||(a==c+1&&b==d+1)||(a+1==c&&b==d+1)||(a+1==c&&b+1==d)||(a==c+1&&b+1==d))
+			if((a==c&&b==d+1)||(a==c+1&&b==d)||(a==c&&b+1==d)||(a+1==c&&b==d)||
+			   (a==c+1&&b==d+1)||(a+1==c&&b==d+1)||(a+1==c&&b+1==d)||(a==c+1&&b+1==d))
 			return 1;
 			else 
 			return 0;
@@ -94,7 +96,22 @@ else if(piece_type == 2||piece_type == 8)//queen
 	{
 		if(Board_Piece[c][d]==0||Board_Piece[c][d]>=7)//change for testing
 		{
-			if((a==c&&b+1==d)||(a==c&&b+2==d)||(a==c&&b+3==d)||(a==c&&b+4==d)||(a==c&&b+5==d)||(a==c&&b+6==d)||(a==c&&b+7==d)||(a==c&&b+8==d)||(a==c&&b==d+1)||(a==c&&b==d+2)||(a==c&&b==d+3)||(a==c&&b==d+4)||(a==c&&b==d+5)||(a==c&&b==d+6)||(a==c&&b==d+7)||(a==c&&b==d+8)||(a+1==c&&b==d)||(a+2==c&&b==d)||(a+3==c&&b==d)||(a+4==c&&b==d)||(a+5==c&&b==d)||(a+6==c&&b==d)||(a+7==c&&b==d)||(a+8==c&&b==d)||(a==c+1&&b==d)||(a==c+2&&b==d)||(a==c+3&&b==d)||(a==c+4&&b==d)||(a==c+5&&b==d)||(a==c+6&&b==d)||(a==c+7&&b==d)||(a==c+8&&b==d)||(a+1==c&&b+1==d)||(a+2==c&&b+2==d)||(a+3==c&&b+3==d)||(a+4==c&&b+4==d)||(a+5==c&&b+5==d)||(a+6==c&&b+6==d)||(a+7==c&&b+7==d)||(a+8==c&&b+8==d)||(a-1==c&&b-1==d)||(a-2==c&&b-2==d)||(a-3==c&&b-3==d)||(a-4==c&&b-4==d)||(a-5==c&&b-5==d)||(a-6==c&&b-6==d)||(a-7==c&&b-7==d)||(a-8==c&&b-8==d)||(a-1==c&&b+1==d)||(a-2==c&&b+2==d)||(a-3==c&&b+3==d)||(a-4==c&&b+4==d)||(a-5==c&&b+5==d)||(a-6==c&&b+6==d)||(a-7==c&&b+7==d)||(a-8==c&&b+8==d)||(a+1==c&&b-1==d)||(a+2==c&&b-2==d)||(a+3==c&&b-3==d)||(a+4==c&&b-4==d)||(a+5==c&&b-5==d)||(a+6==c&&b-6==d)||(a+7==c&&b-7==d)||(a+8==c&&b-8==d))
+			if((a==c&&b+1==d)||(a==c&&b+2==d)||(a==c&&b+3==d)||(a==c&&b+4==d)||
+			   (a==c&&b+5==d)||(a==c&&b+6==d)||(a==c&&b+7==d)||(a==c&&b+8==d)||
+			   (a==c&&b==d+1)||(a==c&&b==d+2)||(a==c&&b==d+3)||(a==c&&b==d+4)||
+			   (a==c&&b==d+5)||(a==c&&b==d+6)||(a==c&&b==d+7)||(a==c&&b==d+8)||
+			   (a+1==c&&b==d)||(a+2==c&&b==d)||(a+3==c&&b==d)||(a+4==c&&b==d)||
+			   (a+5==c&&b==d)||(a+6==c&&b==d)||(a+7==c&&b==d)||(a+8==c&&b==d)||
+			   (a==c+1&&b==d)||(a==c+2&&b==d)||(a==c+3&&b==d)||(a==c+4&&b==d)||
+			   (a==c+5&&b==d)||(a==c+6&&b==d)||(a==c+7&&b==d)||(a==c+8&&b==d)||
+			   (a+1==c&&b+1==d)||(a+2==c&&b+2==d)||(a+3==c&&b+3==d)||(a+4==c&&b+4==d)||
+			   (a+5==c&&b+5==d)||(a+6==c&&b+6==d)||(a+7==c&&b+7==d)||(a+8==c&&b+8==d)||
+			   (a-1==c&&b-1==d)||(a-2==c&&b-2==d)||(a-3==c&&b-3==d)||(a-4==c&&b-4==d)||
+			   (a-5==c&&b-5==d)||(a-6==c&&b-6==d)||(a-7==c&&b-7==d)||(a-8==c&&b-8==d)||
+			   (a-1==c&&b+1==d)||(a-2==c&&b+2==d)||(a-3==c&&b+3==d)||(a-4==c&&b+4==d)||
+			   (a-5==c&&b+5==d)||(a-6==c&&b+6==d)||(a-7==c&&b+7==d)||(a-8==c&&b+8==d)||
+			   (a+1==c&&b-1==d)||(a+2==c&&b-2==d)||(a+3==c&&b-3==d)||(a+4==c&&b-4==d)||
+			   (a+5==c&&b-5==d)||(a+6==c&&b-6==d)||(a+7==c&&b-7==d)||(a+8==c&&b-8==d))
 			return 1;
 			else 
 			return 0;
@@ -106,7 +123,22 @@ else if(piece_type == 2||piece_type == 8)//queen
 	{
 		if(Board_Piece[c][d]==0||Board_Piece[c][d]<=7)//change for testing
 		{
-			if((a==c&&b+1==d)||(a==c&&b+2==d)||(a==c&&b+3==d)||(a==c&&b+4==d)||(a==c&&b+5==d)||(a==c&&b+6==d)||(a==c&&b+7==d)||(a==c&&b+8==d)||(a==c&&b==d+1)||(a==c&&b==d+2)||(a==c&&b==d+3)||(a==c&&b==d+4)||(a==c&&b==d+5)||(a==c&&b==d+6)||(a==c&&b==d+7)||(a==c&&b==d+8)||(a+1==c&&b==d)||(a+2==c&&b==d)||(a+3==c&&b==d)||(a+4==c&&b==d)||(a+5==c&&b==d)||(a+6==c&&b==d)||(a+7==c&&b==d)||(a+8==c&&b==d)||(a==c+1&&b==d)||(a==c+2&&b==d)||(a==c+3&&b==d)||(a==c+4&&b==d)||(a==c+5&&b==d)||(a==c+6&&b==d)||(a==c+7&&b==d)||(a==c+8&&b==d)||(a+1==c&&b+1==d)||(a+2==c&&b+2==d)||(a+3==c&&b+3==d)||(a+4==c&&b+4==d)||(a+5==c&&b+5==d)||(a+6==c&&b+6==d)||(a+7==c&&b+7==d)||(a+8==c&&b+8==d)||(a-1==c&&b-1==d)||(a-2==c&&b-2==d)||(a-3==c&&b-3==d)||(a-4==c&&b-4==d)||(a-5==c&&b-5==d)||(a-6==c&&b-6==d)||(a-7==c&&b-7==d)||(a-8==c&&b-8==d)||(a-1==c&&b+1==d)||(a-2==c&&b+2==d)||(a-3==c&&b+3==d)||(a-4==c&&b+4==d)||(a-5==c&&b+5==d)||(a-6==c&&b+6==d)||(a-7==c&&b+7==d)||(a-8==c&&b+8==d)||(a+1==c&&b-1==d)||(a+2==c&&b-2==d)||(a+3==c&&b-3==d)||(a+4==c&&b-4==d)||(a+5==c&&b-5==d)||(a+6==c&&b-6==d)||(a+7==c&&b-7==d)||(a+8==c&&b-8==d))
+			if((a==c&&b+1==d)||(a==c&&b+2==d)||(a==c&&b+3==d)||(a==c&&b+4==d)||
+			   (a==c&&b+5==d)||(a==c&&b+6==d)||(a==c&&b+7==d)||(a==c&&b+8==d)||
+			   (a==c&&b==d+1)||(a==c&&b==d+2)||(a==c&&b==d+3)||(a==c&&b==d+4)||
+			   (a==c&&b==d+5)||(a==c&&b==d+6)||(a==c&&b==d+7)||(a==c&&b==d+8)||
+			   (a+1==c&&b==d)||(a+2==c&&b==d)||(a+3==c&&b==d)||(a+4==c&&b==d)||
+			   (a+5==c&&b==d)||(a+6==c&&b==d)||(a+7==c&&b==d)||(a+8==c&&b==d)||
+			   (a==c+1&&b==d)||(a==c+2&&b==d)||(a==c+3&&b==d)||(a==c+4&&b==d)||
+			   (a==c+5&&b==d)||(a==c+6&&b==d)||(a==c+7&&b==d)||(a==c+8&&b==d)||
+			   (a+1==c&&b+1==d)||(a+2==c&&b+2==d)||(a+3==c&&b+3==d)||(a+4==c&&b+4==d)||
+			   (a+5==c&&b+5==d)||(a+6==c&&b+6==d)||(a+7==c&&b+7==d)||(a+8==c&&b+8==d)||
+			   (a-1==c&&b-1==d)||(a-2==c&&b-2==d)||(a-3==c&&b-3==d)||(a-4==c&&b-4==d)||
+			   (a-5==c&&b-5==d)||(a-6==c&&b-6==d)||(a-7==c&&b-7==d)||(a-8==c&&b-8==d)||
+			   (a-1==c&&b+1==d)||(a-2==c&&b+2==d)||(a-3==c&&b+3==d)||(a-4==c&&b+4==d)||
+			   (a-5==c&&b+5==d)||(a-6==c&&b+6==d)||(a-7==c&&b+7==d)||(a-8==c&&b+8==d)||
+			   (a+1==c&&b-1==d)||(a+2==c&&b-2==d)||(a+3==c&&b-3==d)||(a+4==c&&b-4==d)||
+			   (a+5==c&&b-5==d)||(a+6==c&&b-6==d)||(a+7==c&&b-7==d)||(a+8==c&&b-8==d))
 			return 1;
 			else 
 			return 0;
@@ -123,7 +155,14 @@ else if(piece_type == 3||piece_type == 9)//bishop
 	{
 		if(Board_Piece[c][d]==0||Board_Piece[c][d]>=7)//change for testing
 		{
-			if((a+1==c&&b+1==d)||(a+2==c&&b+2==d)||(a+3==c&&b+3==d)||(a+4==c&&b+4==d)||(a+5==c&&b+5==d)||(a+6==c&&b+6==d)||(a+7==c&&b+7==d)||(a+8==c&&b+8==d)||(a-1==c&&b-1==d)||(a-2==c&&b-2==d)||(a-3==c&&b-3==d)||(a-4==c&&b-4==d)||(a-5==c&&b-5==d)||(a-6==c&&b-6==d)||(a-7==c&&b-7==d)||(a-8==c&&b-8==d)||(a-1==c&&b+1==d)||(a-2==c&&b+2==d)||(a-3==c&&b+3==d)||(a-4==c&&b+4==d)||(a-5==c&&b+5==d)||(a-6==c&&b+6==d)||(a-7==c&&b+7==d)||(a-8==c&&b+8==d)||(a+1==c&&b-1==d)||(a+2==c&&b-2==d)||(a+3==c&&b-3==d)||(a+4==c&&b-4==d)||(a+5==c&&b-5==d)||(a+6==c&&b-6==d)||(a+7==c&&b-7==d)||(a+8==c&&b-8==d))
+			if((a+1==c&&b+1==d)||(a+2==c&&b+2==d)||(a+3==c&&b+3==d)||(a+4==c&&b+4==d)||
+			   (a+5==c&&b+5==d)||(a+6==c&&b+6==d)||(a+7==c&&b+7==d)||(a+8==c&&b+8==d)||
+			   (a-1==c&&b-1==d)||(a-2==c&&b-2==d)||(a-3==c&&b-3==d)||(a-4==c&&b-4==d)||
+			   (a-5==c&&b-5==d)||(a-6==c&&b-6==d)||(a-7==c&&b-7==d)||(a-8==c&&b-8==d)||
+			   (a-1==c&&b+1==d)||(a-2==c&&b+2==d)||(a-3==c&&b+3==d)||(a-4==c&&b+4==d)||
+			   (a-5==c&&b+5==d)||(a-6==c&&b+6==d)||(a-7==c&&b+7==d)||(a-8==c&&b+8==d)||
+			   (a+1==c&&b-1==d)||(a+2==c&&b-2==d)||(a+3==c&&b-3==d)||(a+4==c&&b-4==d)||
+			   (a+5==c&&b-5==d)||(a+6==c&&b-6==d)||(a+7==c&&b-7==d)||(a+8==c&&b-8==d))
 			return 1;
 			else 
 			return 0;
@@ -135,7 +174,14 @@ else if(piece_type == 3||piece_type == 9)//bishop
 	{
 		if(Board_Piece[c][d]==0||Board_Piece[c][d]<=7)//change for testing
 		{
-			if((a+1==c&&b+1==d)||(a+2==c&&b+2==d)||(a+3==c&&b+3==d)||(a+4==c&&b+4==d)||(a+5==c&&b+5==d)||(a+6==c&&b+6==d)||(a+7==c&&b+7==d)||(a+8==c&&b+8==d)||(a-1==c&&b-1==d)||(a-2==c&&b-2==d)||(a-3==c&&b-3==d)||(a-4==c&&b-4==d)||(a-5==c&&b-5==d)||(a-6==c&&b-6==d)||(a-7==c&&b-7==d)||(a-8==c&&b-8==d)||(a-1==c&&b+1==d)||(a-2==c&&b+2==d)||(a-3==c&&b+3==d)||(a-4==c&&b+4==d)||(a-5==c&&b+5==d)||(a-6==c&&b+6==d)||(a-7==c&&b+7==d)||(a-8==c&&b+8==d)||(a+1==c&&b-1==d)||(a+2==c&&b-2==d)||(a+3==c&&b-3==d)||(a+4==c&&b-4==d)||(a+5==c&&b-5==d)||(a+6==c&&b-6==d)||(a+7==c&&b-7==d)||(a+8==c&&b-8==d))
+			if((a+1==c&&b+1==d)||(a+2==c&&b+2==d)||(a+3==c&&b+3==d)||(a+4==c&&b+4==d)||
+			   (a+5==c&&b+5==d)||(a+6==c&&b+6==d)||(a+7==c&&b+7==d)||(a+8==c&&b+8==d)||
+			   (a-1==c&&b-1==d)||(a-2==c&&b-2==d)||(a-3==c&&b-3==d)||(a-4==c&&b-4==d)||
+			   (a-5==c&&b-5==d)||(a-6==c&&b-6==d)||(a-7==c&&b-7==d)||(a-8==c&&b-8==d)||
+			   (a-1==c&&b+1==d)||(a-2==c&&b+2==d)||(a-3==c&&b+3==d)||(a-4==c&&b+4==d)||
+			   (a-5==c&&b+5==d)||(a-6==c&&b+6==d)||(a-7==c&&b+7==d)||(a-8==c&&b+8==d)||
+			   (a+1==c&&b-1==d)||(a+2==c&&b-2==d)||(a+3==c&&b-3==d)||(a+4==c&&b-4==d)||
+			   (a+5==c&&b-5==d)||(a+6==c&&b-6==d)||(a+7==c&&b-7==d)||(a+8==c&&b-8==d))
 			return 1;
 			else 
 			return 0;
@@ -152,7 +198,14 @@ else if(piece_type == 4||piece_type ==10)//rook
 	{
 		if(Board_Piece[c][d]==0||Board_Piece[c][d]>=7)//change for testing
 		{
-			if((a==c&&b+1==d)||(a==c&&b+2==d)||(a==c&&b+3==d)||(a==c&&b+4==d)||(a==c&&b+5==d)||(a==c&&b+6==d)||(a==c&&b+7==d)||(a==c&&b+8==d)||(a==c&&b==d+1)||(a==c&&b==d+2)||(a==c&&b==d+3)||(a==c&&b==d+4)||(a==c&&b==d+5)||(a==c&&b==d+6)||(a==c&&b==d+7)||(a==c&&b==d+8)||(a+1==c&&b==d)||(a+2==c&&b==d)||(a+3==c&&b==d)||(a+4==c&&b==d)||(a+5==c&&b==d)||(a+6==c&&b==d)||(a+7==c&&b==d)||(a+8==c&&b==d)||(a==c+1&&b==d)||(a==c+2&&b==d)||(a==c+3&&b==d)||(a==c+4&&b==d)||(a==c+5&&b==d)||(a==c+6&&b==d)||(a==c+7&&b==d)||(a==c+8&&b==d))
+			if((a==c&&b+1==d)||(a==c&&b+2==d)||(a==c&&b+3==d)||(a==c&&b+4==d)||
+			   (a==c&&b+5==d)||(a==c&&b+6==d)||(a==c&&b+7==d)||(a==c&&b+8==d)||
+			   (a==c&&b==d+1)||(a==c&&b==d+2)||(a==c&&b==d+3)||(a==c&&b==d+4)||
+			   (a==c&&b==d+5)||(a==c&&b==d+6)||(a==c&&b==d+7)||(a==c&&b==d+8)||
+			   (a+1==c&&b==d)||(a+2==c&&b==d)||(a+3==c&&b==d)||(a+4==c&&b==d)||
+			   (a+5==c&&b==d)||(a+6==c&&b==d)||(a+7==c&&b==d)||(a+8==c&&b==d)||
+			   (a==c+1&&b==d)||(a==c+2&&b==d)||(a==c+3&&b==d)||(a==c+4&&b==d)||
+			   (a==c+5&&b==d)||(a==c+6&&b==d)||(a==c+7&&b==d)||(a==c+8&&b==d))
 			return 1;
 			else 
 			return 0;
@@ -164,7 +217,14 @@ else if(piece_type == 4||piece_type ==10)//rook
 	{
 		if(Board_Piece[c][d]==0||Board_Piece[c][d]<=7)//change for testing
 		{
-			if((a==c&&b+1==d)||(a==c&&b+2==d)||(a==c&&b+3==d)||(a==c&&b+4==d)||(a==c&&b+5==d)||(a==c&&b+6==d)||(a==c&&b+7==d)||(a==c&&b+8==d)||(a==c&&b==d+1)||(a==c&&b==d+2)||(a==c&&b==d+3)||(a==c&&b==d+4)||(a==c&&b==d+5)||(a==c&&b==d+6)||(a==c&&b==d+7)||(a==c&&b==d+8)||(a+1==c&&b==d)||(a+2==c&&b==d)||(a+3==c&&b==d)||(a+4==c&&b==d)||(a+5==c&&b==d)||(a+6==c&&b==d)||(a+7==c&&b==d)||(a+8==c&&b==d)||(a==c+1&&b==d)||(a==c+2&&b==d)||(a==c+3&&b==d)||(a==c+4&&b==d)||(a==c+5&&b==d)||(a==c+6&&b==d)||(a==c+7&&b==d)||(a==c+8&&b==d))
+			if((a==c&&b+1==d)||(a==c&&b+2==d)||(a==c&&b+3==d)||(a==c&&b+4==d)||
+			   (a==c&&b+5==d)||(a==c&&b+6==d)||(a==c&&b+7==d)||(a==c&&b+8==d)||
+			   (a==c&&b==d+1)||(a==c&&b==d+2)||(a==c&&b==d+3)||(a==c&&b==d+4)||
+			   (a==c&&b==d+5)||(a==c&&b==d+6)||(a==c&&b==d+7)||(a==c&&b==d+8)||
+			   (a+1==c&&b==d)||(a+2==c&&b==d)||(a+3==c&&b==d)||(a+4==c&&b==d)||
+			   (a+5==c&&b==d)||(a+6==c&&b==d)||(a+7==c&&b==d)||(a+8==c&&b==d)||
+			   (a==c+1&&b==d)||(a==c+2&&b==d)||(a==c+3&&b==d)||(a==c+4&&b==d)||
+			   (a==c+5&&b==d)||(a==c+6&&b==d)||(a==c+7&&b==d)||(a==c+8&&b==d))
 			return 1;
 			else 
 			return 0;
@@ -181,7 +241,8 @@ else if(piece_type == 5||piece_type == 11)//knight
 	{
 		if(Board_Piece[c][d]==0||Board_Piece[c][d]>=7)//change for testing
 		{
-			if((a+2==c&&b+1==d)||(a+2==c&&b==d+1)||(a==c+2&&b==d+1)||(a==c+2&&b+1==d)||(a+1==c&&b+2==d)||(a==c+1&&b+2==d)||(a+1==c&&b==d+2)||(a==c+2&&b==d+2))
+			if((a+2==c&&b+1==d)||(a+2==c&&b==d+1)||(a==c+2&&b==d+1)||(a==c+2&&b+1==d)||
+			   (a+1==c&&b+2==d)||(a==c+1&&b+2==d)||(a+1==c&&b==d+2)||(a==c+2&&b==d+2))
 			return 1;
 			else 
 			return 0;
@@ -193,7 +254,8 @@ else if(piece_type == 5||piece_type == 11)//knight
 	{
 		if(Board_Piece[c][d]==0||Board_Piece[c][d]<=7)//change for testing
 		{
-			if((a+2==c&&b+1==d)||(a+2==c&&b==d+1)||(a==c+2&&b==d+1)||(a==c+2&&b+1==d)||(a+1==c&&b+2==d)||(a==c+1&&b+2==d)||(a+1==c&&b==d+2)||(a==c+2&&b==d+2))
+			if((a+2==c&&b+1==d)||(a+2==c&&b==d+1)||(a==c+2&&b==d+1)||(a==c+2&&b+1==d)||
+			   (a+1==c&&b+2==d)||(a==c+1&&b+2==d)||(a+1==c&&b==d+2)||(a==c+2&&b==d+2))
 			return 1;
 			else 
 			return 0;
@@ -603,7 +665,8 @@ if(piece_id<=6)
 {
 if(piece_id==1)
 {
-if(Board_Piece[a][b-1]==7||Board_Piece[a-1][b]==7||Board_Piece[a][b+1]==7||Board_Piece[a+1][b]==7||Board_Piece[a-1][b-1]==7||Board_Piece[a+1][b-1]==7||Board_Piece[a+1][b+1]==7||Board_Piece[a-1][b+1]==7)
+if(Board_Piece[a][b-1]==7||Board_Piece[a-1][b]==7||Board_Piece[a][b+1]==7||
+Board_Piece[a+1][b]==7||Board_Piece[a-1][b-1]==7||Board_Piece[a+1][b-1]==7||Board_Piece[a+1][b+1]==7||Board_Piece[a-1][b+1]==7)
 return 1;
 else
 return 0;
@@ -678,7 +741,8 @@ else
 {
 if(piece_id==7)
 {
-if(Board_Piece[a][b-1]==1||Board_Piece[a-1][b]==1||Board_Piece[a][b+1]==1||Board_Piece[a+1][b]==1||Board_Piece[a-1][b-1]==1||Board_Piece[a+1][b-1]==1||Board_Piece[a+1][b+1]==1||Board_Piece[a-1][b+1]==1)
+if(Board_Piece[a][b-1]==1||Board_Piece[a-1][b]==1||Board_Piece[a][b+1]==1||
+Board_Piece[a+1][b]==1||Board_Piece[a-1][b-1]==1||Board_Piece[a+1][b-1]==1||Board_Piece[a+1][b+1]==1||Board_Piece[a-1][b+1]==1)
 return 1;
 else
 return 0;
