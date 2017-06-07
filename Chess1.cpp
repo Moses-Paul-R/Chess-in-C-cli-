@@ -28,8 +28,7 @@ char getche(){             //Getch not available in linux
  }
 int piece_type,playr_type,a,b,c,d,z,x;
 static int checkmate,bkx,wkx,bky,wky,pos_x,pos_y; //integers that can be changed throughout the program 
-enum { KINGW=1,QUEENW=2,BISHOPW=3,ROOKW=4,KNIGHTW=5,PAWNW=6,KINGB=7,QUEENB=8,BISHOPB=9,ROOKB=10,KNIGHTB=11,PAWNB=12 };// assigning values
-
+enum { KINGW=1,QUEENW=2,BISHOPW=3,ROOKW=4,KNIGHTW=5,PAWNW=6,KINGB=7,QUEENB=8,BISHOPB=9,ROOKB=10,KNIGHTB=11,PAWNB=12 };
 int Board_Piece[8][8]={ ROOKW,KNIGHTW,BISHOPW,KINGW,QUEENW,BISHOPW,KNIGHTW,ROOKW, //declare board
 			PAWNW,PAWNW,PAWNW,PAWNW,PAWNW,PAWNW,PAWNW,PAWNW,
 			0,0,0,0,0,0,0,0,
@@ -911,8 +910,8 @@ cout<<"			  0     0      0	0     0      0       0       0    \n";
 cout<<"			  0     0      0	0     0      0       0       0    \n";
 cout<<"			  0     0      0	0     0      0       0       0    \n";
 cout<<"			PAWNB PAWNB   PAWNB   PAWNB PAWNB  PAWNB   PAWNB   PAWNB  \n";
-cout<<"                 \tROOKB KNIGHTB BISHOPB KINGB QUEENB BISHOPB KNIGHTB ROOKB \n";
-cout<<"\n\n\tThe enums are KINGW=1,QUEENW=2,BISHOPW=3,ROOKW=4,KNIGHTW=5,PAWNW=6,\nKINGB=7,QUEENB=8,BISHOPB=9,ROOKB=10,KNIGHTB=11,PAWNB=12 \n";
+cout<<"                 \tROOKB KNIGHTB BISHOPB KINGB QUEENB BISHOPB KNIGHTB ROOKB \n"
+<<"\n\n\tThe enums are KINGW=1,QUEENW=2,BISHOPW=3,ROOKW=4,KNIGHTW=5,PAWNW=6,\nKINGB=7,QUEENB=8,BISHOPB=9,ROOKB=10,KNIGHTB=11,PAWNB=12\n";
 cout<<"\n\tEnter no of Turns:"<<endl;
 cin>>l;
 cout<<"\b";
