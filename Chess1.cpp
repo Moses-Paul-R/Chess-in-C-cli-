@@ -340,8 +340,7 @@ else
 return 0;
 }
 int Piece_Exist(int piece_type,int q,int w)
-{		
-	     if(Board_Piece[q][w]!=piece_type)
+{			     if(Board_Piece[q][w]==0)
 		return 0;
 	      else 
 	{	return 1;	
