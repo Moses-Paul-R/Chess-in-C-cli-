@@ -21,4 +21,9 @@ this program recognises chess moves in the following format
   
  further development is welcome
  
- 
+ https://github.com/Mosespaulr/ChessCppCLI/blob/master/Screenshot%20from%202017-06-08%2020:41:16.png
+https://github.com/Mosespaulr/ChessCppCLI/blob/master/Screenshot%20from%202017-06-08%2020:41:48.png
+https://github.com/Mosespaulr/ChessCppCLI/blob/master/Screenshot%20from%202017-06-08%2020:42:34.png
+https://github.com/Mosespaulr/ChessCppCLI/blob/master/Screenshot%20from%202017-06-08%2020:44:40.png
+https://github.com/Mosespaulr/ChessCppCLI/blob/master/Screenshot%20from%202017-06-08%2020:45:29.png
+https://github.com/Mosespaulr/ChessCppCLI/blob/master/Screenshot%20from%202017-06-08%2020:47:42.png
